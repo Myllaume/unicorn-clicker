@@ -1,0 +1,14 @@
+- name: Bonbon
+  description: >-
+    Les bonbons permettent d'attirer une licorne.
+    Vous gagnez 1 licorne supplémentaire par seconde,
+    par bonbon.
+  nb_per_second: 1
+  cost: 50
+- name: Tablette de chocolat
+  description: >-
+    Les licornes raffolent du chocolat qui attire quelques licornes.
+    Vous gagnez 10 licornes supplémentaire par seconde,
+    par tablette de chosolat.
+  nb_per_second: 2
+  cost: 500
