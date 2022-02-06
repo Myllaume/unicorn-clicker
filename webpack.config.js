@@ -48,7 +48,9 @@ module.exports = {
             loader: 'css-loader',
             options: {
               // enable CSS Modules
-              modules: true,
+              modules: {
+                localIdentName: '[name]__[local]___[hash:base64:5]'
+              }
               // customize generated class names
               // localIdentName: '[local]_[hash:base64:8]'
             }
