@@ -2,21 +2,37 @@
     <div>
         <span>{{ count }}</span>
 
-        <MoreButton v-bind:nb=1 v-on:click="moreCookies($event, 1)" />
+        <MoreButton
+            :nb=cookie_number
+            @add-cookie="moreCookies"
+            v-for="cookie_number in [1, 2, 3]"
+            :key="cookie_number"
+        />
+
+        <Baker
+            :baker=baker
+            v-for="baker in bakers"
+            :key="baker.name"
+            @add-baker="addBaker"
+            :count=count
+        />
     </div>
 </template>
  
 <script lang="ts">
     import Vue from 'vue';
     import MoreButton from './MoreButton.vue';    
+    import Baker from './Baker.vue';
+    import bakers from '../data/bakers.yml';
 
     export default Vue.extend({
         props: {
-            // 'count': String
+            
         },
         data: () => {
             return {
-                count: 0
+                count: 0,
+                bakers: bakers
             }
         },
         mounted () {
@@ -25,17 +41,16 @@
             }, 1000)
         },
         methods: {
-            moreCookies (event, nb) {
-                console.log(event, nb);
-                
-                // if (event) {
-                //     event.preventDefault()
-                //     }
-                // this.count += 1;
+            moreCookies (nb) {
+                this.count += nb;
+            },
+            addBaker (nbPerSecond) {
+                this.count += nbPerSecond;
             }
         },
         components: {
-            MoreButton
+            MoreButton,
+            Baker
         }
     });
 </script>

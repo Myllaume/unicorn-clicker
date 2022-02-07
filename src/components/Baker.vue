@@ -1,11 +1,13 @@
 <template>
     <div>
-        <h3>{{ name }}</h3>
-        <p>{{ description }}</p>
+        <h3>{{ baker.name }}</h3>
+        <p>{{ baker.description }}</p>
         <ul>
-            <li>Licornes par secondes : {{ nb_per_second }}</li>
-            <li>Licornes par secondes : {{ cost }}</li>
+            <li>Licornes par secondes : {{ baker.nb_per_second }}</li>
+            <li>Coût : {{ baker.cost }}</li>
         </ul>
+
+        <button v-on:click="addBaker(baker.name, baker.cost)">Obtenir</button>
     </div>
 </template>
 
@@ -14,10 +16,15 @@
 
     export default Vue.extend({
         props: {
-            'name': String,
-            'description': String,
-            'nb_per_second': Number,
-            'cost': Number
+            'baker': Object,
+            'count': Number
+        },
+        methods: {
+            addBaker (bakerNbPerSecond, bakerCost) {
+                if (this.count >= bakerCost) {
+                    this.$emit('add-baker', Number(bakerNbPerSecond));
+                }
+            }
         }
     })
 </script>

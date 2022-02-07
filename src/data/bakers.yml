@@ -5,6 +5,7 @@
     par bonbon.
   nb_per_second: 1
   cost: 50
+
 - name: Tablette de chocolat
   description: >-
     Les licornes raffolent du chocolat qui attire quelques licornes.

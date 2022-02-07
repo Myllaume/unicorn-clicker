@@ -1,5 +1,5 @@
 <template>
-    <button v-on:click="moreCookies($event, 1)">+{{ nb }}</button>
+    <button v-on:click="moreCookies($event, nb)">+{{ nb }}</button>
 </template>
 
 <script lang="ts">
@@ -11,13 +11,8 @@
         },
         methods: {
             moreCookies (event, nb) {
-                console.log(event, nb);
-                
-                // if (event) {
-                //     event.preventDefault()
-                //     }
-                // this.count += 1;
+                this.$emit('add-cookie', nb)
             }
-        },
+        }
     });
 </script>
