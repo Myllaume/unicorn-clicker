@@ -31,21 +31,30 @@
         },
         data: () => {
             return {
-                count: 0,
-                bakers: bakers
+                count: 5000,
+                bakers: bakers,
+                muliplicator: 1,
+                interval: setInterval(function(){})
             }
         },
         mounted () {
-            setInterval(() => {
-                this.count++
+            this.interval = setInterval(() => {
+                this.count += this.muliplicator;
             }, 1000)
         },
         methods: {
             moreCookies (nb) {
                 this.count += nb;
             },
-            addBaker (nbPerSecond) {
-                this.count += nbPerSecond;
+            addBaker (nbPerSecond, cost) {
+                this.muliplicator += nbPerSecond;
+
+                clearInterval(this.interval)
+                this.interval = setInterval(() => {
+                    this.count += this.muliplicator;
+                }, 1000)
+
+                this.count -= cost;
             }
         },
         components: {

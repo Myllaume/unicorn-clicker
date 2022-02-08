@@ -3,11 +3,11 @@
         <h3>{{ baker.name }}</h3>
         <p>{{ baker.description }}</p>
         <ul>
-            <li>Licornes par secondes : {{ baker.nb_per_second }}</li>
+            <li>Licornes supplémentaire par secondes : {{ baker.nb_per_second }}</li>
             <li>Coût : {{ baker.cost }}</li>
         </ul>
 
-        <button v-on:click="addBaker(baker.name, baker.cost)">Obtenir</button>
+        <button v-on:click="addBaker(baker.nb_per_second, baker.cost)">Obtenir</button>
     </div>
 </template>
 
@@ -22,7 +22,7 @@
         methods: {
             addBaker (bakerNbPerSecond, bakerCost) {
                 if (this.count >= bakerCost) {
-                    this.$emit('add-baker', Number(bakerNbPerSecond));
+                    this.$emit('add-baker', bakerNbPerSecond, bakerCost);
                 }
             }
         }

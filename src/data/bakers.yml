@@ -11,5 +11,5 @@
     Les licornes raffolent du chocolat qui attire quelques licornes.
     Vous gagnez 10 licornes supplémentaire par seconde,
     par tablette de chosolat.
-  nb_per_second: 2
+  nb_per_second: 5
   cost: 500
